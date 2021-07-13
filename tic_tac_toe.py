@@ -95,6 +95,21 @@ def check_diagonal(Field, size):
 
     return win
 
+def check_draw(Field):
+    draw = False
+    summary = ''
+    for line in Field:
+        summary += ''.join(line)
+    if '-' in summary:
+        draw = False
+    else:
+        draw = True
+        print("Draw!")
+    return draw
+
+
+
+
 def check_win(Field, size):
 
     return check_rows(myField) or check_collumns(myField, size) or check_diagonal(myField, size) or check_diagonal(mirror(myField,size), size)
@@ -124,7 +139,7 @@ while game_on:
     if myPlayer == 'X': myPlayer = 'O'
     else: myPlayer = 'X'
 
-    if check_win(myField, field_size):
+    if check_win(myField, field_size) or check_draw(myField):
         choice = input("Next Game?[Y/N]")
         if choice == 'Y':
             setup = True
