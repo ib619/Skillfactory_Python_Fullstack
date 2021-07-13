@@ -19,7 +19,6 @@ def display_field(Field):
     print("")
 
 def player_turn(player, Field):
-    p_choice = True
 
     if player == 'X':
         print("Player X turn: ")
@@ -81,18 +80,6 @@ def mirror(Field, size):
             result[i][j] = Field[i][size - 1 - j]
     return result
 
-def transpose(Field):
-    size = 0
-    for line in Field:
-        size += 1
-
-    result = create_field(size)
-
-    for i in range(size):
-        for j in range(size):
-            result[i][j] = Field[j][i]
-
-    return result
 
 def check_diagonal(Field, size):
     win = True
