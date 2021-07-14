@@ -1,4 +1,4 @@
-# SkillFactory Tic-Tac-Toe Task B5
+# SkillFactory Tic-Tac-Toe Task B5.6
 Я немного модифицировал правила для разнообразия
 
 ## Правила
