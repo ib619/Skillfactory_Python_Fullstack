@@ -18,23 +18,36 @@ def display_field(Field):
         i += 1
     print("")
 
-def player_turn(player, Field):
+def player_turn(player, Field, size):
 
     if player == 'X':
         print("Player X turn: ")
     elif player == 'O':
         print("Player O turn: ")
+
     while True:
-        row = int(input("Select Row: "))
-        collumn = int(input("Select Collumn: "))
-        if Field[row][collumn] != '-':
-            print("This cell is not empty! Please choose another one.")
+        while True:
+            row = input("Select Row: ")
+            if row.isnumeric():
+                if int(row) >= 0 and int(row) < size: break
+                else: print("No such index on the field! Please try again!\n")
+            else: print("Not a number! Please try again:\n")
+
+        while True:
+            collumn = input("Select Collumn: ")
+            if collumn.isnumeric():
+                if int(collumn) >= 0 and int(row) < size: break
+                else: print("No such index on the field! Please try again!\n")
+            else: print("Not a number! Please try again:\n")
+
+        if Field[int(row)][int(collumn)] != '-':
+            print("This cell is not empty! Please choose another one:")
         else: break
 
     if player == 'X':
-        Field[row][collumn] = "x"
+        Field[int(row)][int(collumn)] = "x"
     else:
-        Field[row][collumn] = "o"
+        Field[int(row)][int(collumn)] = "o"
     print("")
 
 def check_rows(Field):
@@ -134,7 +147,7 @@ while game_on:
     display_header(field_size)
     display_field(myField)
 
-    player_turn(myPlayer, myField)
+    player_turn(myPlayer, myField, field_size)
 
     if myPlayer == 'X': myPlayer = 'O'
     else: myPlayer = 'X'
