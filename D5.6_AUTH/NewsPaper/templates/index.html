@@ -1,0 +1,16 @@
+{% extends "flatpages/default.html" %}
+
+{% block content %}
+<h2>{{request.user.username}} INFO PAGE</h2>
+<hr>
+<div> Any user related info can be displayed here </div>
+<hr>
+{% if is_not_author %}
+<button> <a href="{% url 'upgrade' %}"> Become an Author!</a> </button>
+{% else %}
+<div>Congratulations, you are already an author! You can create your own posts!</div>
+<button> <a href="{% url 'post_create' %}">Create Post!</a> </button>
+<hr>
+{% endif %}
+<button> <a href="{% url 'logout' %}">Logout</a> </button>
+{% endblock %}

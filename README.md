@@ -5,3 +5,4 @@
 * D1.5: DJANGO
 * D2.7/D3.4: NEWS_TASK
 * D4.4: D4.4_NEWS
+* D5.6: D5.6_AUTH
